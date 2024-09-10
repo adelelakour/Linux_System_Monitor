@@ -5,12 +5,17 @@
 
 #include "process.h"
 #include "system.h"
+#include "SysInfo.h"
+#include "ProcessContainer.h"
+
 
 namespace NCursesDisplay {
-void Display(System& system, int n = 10);
-void DisplaySystem(System& system, WINDOW* window);
-void DisplayProcesses(std::vector<Process>& processes, WINDOW* window, int n);
-std::string ProgressBar(float percent);
+
+    char* getCString(const std::string& str);
+    void writeSysInfoToConsole(SysInfo sys, WINDOW* sys_win);
+    void getProcessListToConsole(ProcessContainer procs, WINDOW* win);
+    void printMain(SysInfo sys, ProcessContainer procs);
+
 };  // namespace NCursesDisplay
 
 #endif

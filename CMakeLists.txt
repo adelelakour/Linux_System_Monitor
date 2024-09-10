@@ -14,8 +14,9 @@ add_executable(monitor
         src/process.cpp
         src/ncurses_display.cpp
         src/system.cpp
-        include/ProcessContainer.h
         src/format.cpp
+        src/processor.cpp
+        src/ProcessContainer.cpp
 )
 
 set_property(TARGET monitor PROPERTY CXX_STANDARD 17)

@@ -12,6 +12,10 @@ add_executable(monitor
         src/ProcessParser.cpp
         src/SysInfo.cpp
         src/process.cpp
+        src/ncurses_display.cpp
+        src/system.cpp
+        include/ProcessContainer.h
+        src/format.cpp
 )
 
 set_property(TARGET monitor PROPERTY CXX_STANDARD 17)

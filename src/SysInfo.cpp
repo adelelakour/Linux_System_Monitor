@@ -2,6 +2,9 @@
 // Created by adelelakour on 10.09.24.
 //
 #include "SysInfo.h"
+
+#include <util.h>
+
 #include "std_includes.h"
 #include "ProcessParser.h"
 
@@ -79,3 +82,38 @@ void SysInfo::setCpuCoresStats()
     this->lastCpuCoresStats = this->currentCpuCoresStats;
 }
 
+
+
+
+void SysInfo::setAttributes() {
+    // getting parsed data
+    this->memPercent = ProcessParser::getSysRamPercent();
+    this->upTime = ProcessParser::getSysUpTime();
+    this->totalProc = ProcessParser::getTotalNumberOfProcesses();
+    this->runningProc = ProcessParser::getNumberOfRunningProcesses();
+    this->threads = ProcessParser::getTotalThreads();
+    this->currentCpuStats = ProcessParser::getSysCpuPercent();
+    this->cpuPercent = ProcessParser::printCpuStats(this->lastCpuStats, this->currentCpuStats);
+    this->lastCpuStats = this->currentCpuStats;
+    this->setCpuCoresStats();
+}
+
+vector<string> SysInfo::getCoresStats() const {
+    std::vector<std::string> result = std::vector<std::string>();
+
+    for (int i = 0; i < this->coresStats.size(); i++) {
+        std::string temp = ("cpu" + to_string(i) + ":   ");
+        float check;
+
+        if (!this->coresStats[i].empty()) {
+            check = stof(this->coresStats[i]);
+        }
+        if (!check || this->coresStats[i] == "nan") {
+            return std::vector<std::string>();
+        }
+
+        temp += Util::getProgressBar(this->coresStats[i]);
+        result.push_back(temp);
+    }
+    return result;
+}

@@ -35,3 +35,27 @@ string Process::getProcess()
                     + this->cmd.substr(0,30)
                     + "...");
 }
+
+
+
+string Process::getUser() const {
+    return this->user;
+}
+string Process::getCmd() const {
+    return this->cmd;
+}
+
+int Process::getCpu() const {
+    auto x = stoi(this->cpu);
+    return x;
+}
+
+int Process::getMem() const {
+    auto x = stoi(this->mem);
+    return x;
+}
+
+string Process::getUpTime() const {
+    return this->upTime;
+}
+

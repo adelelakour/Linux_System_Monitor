@@ -3,7 +3,7 @@
 #include <string>
 #include <thread>
 #include <vector>
-
+#include "process.h"
 #include "format.h"
 #include "ncurses_display.h"
 #include "system.h"
@@ -74,15 +74,15 @@ void NCursesDisplay::DisplayProcesses(std::vector<Process>& processes,
     // Clear the line
     mvwprintw(window, ++row, pid_column, (string(window->_maxx-2, ' ').c_str()));
     
-    mvwprintw(window, row, pid_column, to_string(processes[i].Pid()).c_str());
-    mvwprintw(window, row, user_column, processes[i].User().c_str());
-    float cpu = processes[i].CpuUtilization() * 100;
+    mvwprintw(window, row, pid_column, (processes[i].getPid()).c_str());
+    mvwprintw(window, row, user_column, processes[i].getUser().c_str());
+    float cpu = processes[i].getCpu() * 100;
     mvwprintw(window, row, cpu_column, to_string(cpu).substr(0, 4).c_str());
-    mvwprintw(window, row, ram_column, processes[i].Ram().c_str());
+    mvwprintw(window, row, ram_column, to_string(processes[i].getMem()).c_str());
     mvwprintw(window, row, time_column,
-              Format::ElapsedTime(processes[i].UpTime()).c_str());
+              Format::ElapsedTime(std::stoi(processes[i].getUpTime())).c_str());
     mvwprintw(window, row, command_column,
-              processes[i].Command().substr(0, window->_maxx - 46).c_str());
+              processes[i].getCmd().substr(0, window->_maxx - 46).c_str());
   }
 }
 

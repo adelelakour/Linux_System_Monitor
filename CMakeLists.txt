@@ -11,6 +11,7 @@ add_executable(monitor
         src/util.cpp
         src/ProcessParser.cpp
         src/SysInfo.cpp
+        src/process.cpp
 )
 
 set_property(TARGET monitor PROPERTY CXX_STANDARD 17)

@@ -11,7 +11,7 @@ int main() {
   std::cout << "Helloooooooooooooooooooo \n";
 
   ProcessParser p;
-
+  Process P("2065");
   std::cout << p.getSysRamPercent() << std::endl;
 
 

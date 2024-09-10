@@ -145,7 +145,7 @@ string ProcessParser::getProcUser(string pid) {
     }
   }
 
-  auto stream2 = Util::getStream(Path::UserFile());
+  auto stream2 = Util::getStream("/etc/passwd");
   while (getline(stream2, line)) {
     if (line.find(Uid) != string::npos) {
       istringstream ss2(line);
@@ -156,7 +156,7 @@ string ProcessParser::getProcUser(string pid) {
 }
 
 
-// proc/cpuinfo
+
 int ProcessParser::getNumberOfCores() {
   auto stream = Util::getStream((Path::basePath() + "cpuinfo"));
   string line{};

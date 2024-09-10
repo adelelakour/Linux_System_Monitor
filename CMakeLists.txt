@@ -8,7 +8,10 @@ include_directories(include)
 
 add_executable(monitor
         src/main.cpp
-        src/util.cpp)
+        src/util.cpp
+        src/ProcessParser.cpp
+        src/SysInfo.cpp
+)
 
 set_property(TARGET monitor PROPERTY CXX_STANDARD 17)
 target_link_libraries(monitor ${CURSES_LIBRARIES})

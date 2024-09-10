@@ -12,6 +12,9 @@ int main() {
 
   ProcessParser p;
 
+  std::cout << p.getSysRamPercent() << std::endl;
+
+
   /*
   System system;
   NCursesDisplay::Display(system);

@@ -43,6 +43,7 @@ public:
     static int getNumberOfRunningProcesses();
     static string getOsName();
     static std::string printCpuStats(std::vector<std::string> values1, std::vector<std::string>values2);
+    static int getNumberOfCores();
 };
 
 

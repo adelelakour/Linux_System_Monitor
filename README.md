@@ -15,3 +15,4 @@ This project relies on the following dependencies:
 
     NCurses: Used for creating the user interface.
     C++17: Required for the `filesystem` header and other modern C++ features.
+ 

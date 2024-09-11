@@ -12,7 +12,6 @@ add_executable(monitor
         src/ProcessParser.cpp
         src/SysInfo.cpp
         src/process.cpp
-        src/ncurses_display.cpp
         src/system.cpp
         src/format.cpp
         src/processor.cpp

@@ -21,7 +21,7 @@ public:
     }
     void refreshList();
     string printList();
-    vector<string> getList();
+    std::vector<std::vector<std::string>> getList();
 
 private:
     vector<Process>_list;

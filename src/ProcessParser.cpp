@@ -140,7 +140,6 @@ string ProcessParser::getProcUser(string pid) {
       istream_iterator<string> start(ss), end;
       vector<string> words(start, end);
       Uid = words[1];
-      cout << "UID : " << Uid << endl;
       break;
     }
   }
